@@ -1,0 +1,165 @@
+/* General reset and body styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  background-color: hsl(217, 54%, 11%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Card Block */
+.card {
+  background-color: hsl(216, 50%, 16%);
+  border-radius: 15px;
+  padding: 20px;
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+}
+
+/* Image */
+.card__image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Title */
+.card__title {
+  font-size: 22px;
+  color: hsl(0, 0%, 100%);
+  margin: 20px 0 10px;
+}
+
+/* Description */
+.card__description {
+  font-size: 18px;
+  color: hsl(215, 51%, 70%);
+  margin-bottom: 20px;
+}
+
+/* Info section */
+.card__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Price and time */
+.card__price,
+.card__time {
+  display: flex;
+  align-items: center;
+  color: hsl(178, 100%, 50%);
+}
+
+.card__icon {
+  width: 15px;
+  margin-right: 10px;
+}
+
+.creations {
+  color: hsl(215, 51%, 70%);
+}
+
+.card__time {
+  color: hsl(215, 51%, 70%);
+}
+
+/* Creator section */
+.card__creator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid hsl(215, 32%, 27%);
+  padding-top: 15px;
+}
+
+.card__avatar {
+  width: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.card__creator-link {
+  color: hsl(0, 0%, 100%);
+  text-decoration: none;
+}
+
+.card__creator-link:hover,
+.card__title a:hover {
+  color: hsl(178, 100%, 50%);
+}
+
+/* Hover y efectos de enfoque */
+.card__image img:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.card__title a {
+  color: inherit; /* Hereda el color del contenedor (el color del título) */
+  text-decoration: none; /* Elimina el subrayado del enlace */
+  transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+/* Estilo base para la imagen */
+.card__image {
+  position: relative;
+  cursor: pointer;
+}
+
+.card__image img {
+  width: 100%;
+  border-radius: 10px;
+  transition: opacity 0.3s ease; /* Transición suave de la opacidad */
+}
+
+/* Overlay que aparece en el hover */
+.card__image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(178, 100%, 50%); /* Color deseado */
+  opacity: 0; /* Inicialmente invisible */
+  transition: opacity 0.3s ease; /* Transición suave de la opacidad */
+  border-radius: 10px; /* Asegura que el overlay siga el borde de la imagen */
+}
+
+/* Hover sobre la imagen para hacer visible el overlay */
+.card__image:hover::before {
+  opacity: 0.4; /* Opacidad del 80% */
+}
+
+/* Hover sobre la tarjeta para cambiar el color de la descripción */
+.card:hover .card__description {
+  color: hsl(215, 51%, 70%); /* Color de la descripción en hover */
+}
+
+/* Estilo del ícono de vista */
+.card__view-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.4);
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Hover sobre la imagen para hacer visible el ícono de vista con color predominante */
+.card__image:hover .card__view-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(0.1);
+  color: hsl(178, 100%, 50%); /* Asegurarse de que el color sea predominante */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
